@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "600daa78-3c6b-4ae2-afcf-00a6bb3e5d9c",
+		"name": "Prueba tus datos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18153409"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"bvasquez\",\r\n    \"contraseña\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busqueda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMzQzMDQxMywianRpIjoiOTZlNjhmNjEtYjFlMS00YmI3LWJjYTYtNDgzODc4ZmFjYTFmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJ2YXNxdWV6IiwibmJmIjoxNzEzNDMwNDEzLCJjc3JmIjoiNDQ2NzhiMDYtYTQ1OS00YzBhLTg5ZjYtNmNkMWU0YzEwMjYyIiwiZXhwIjoxNzEzNDczNjEzfQ.ZalyRLmQUeYWIzqxNy40F3sD_agQBnEbcbTn8VAFWoU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"criterio\":\"Demandado/Procesado\",\r\n    \"documento\":\"1791251237001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/buscar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"buscar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar data y generar csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMzQzMDQxMywianRpIjoiOTZlNjhmNjEtYjFlMS00YmI3LWJjYTYtNDgzODc4ZmFjYTFmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJ2YXNxdWV6IiwibmJmIjoxNzEzNDMwNDEzLCJjc3JmIjoiNDQ2NzhiMDYtYTQ1OS00YzBhLTg5ZjYtNmNkMWU0YzEwMjYyIiwiZXhwIjoxNzEzNDczNjEzfQ.ZalyRLmQUeYWIzqxNy40F3sD_agQBnEbcbTn8VAFWoU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documento\":\"1791251237001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/consultar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"consultar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMzQzMDQxMywianRpIjoiOTZlNjhmNjEtYjFlMS00YmI3LWJjYTYtNDgzODc4ZmFjYTFmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJ2YXNxdWV6IiwibmJmIjoxNzEzNDMwNDEzLCJjc3JmIjoiNDQ2NzhiMDYtYTQ1OS00YzBhLTg5ZjYtNmNkMWU0YzEwMjYyIiwiZXhwIjoxNzEzNDczNjEzfQ.ZalyRLmQUeYWIzqxNy40F3sD_agQBnEbcbTn8VAFWoU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/prueba",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"prueba"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
