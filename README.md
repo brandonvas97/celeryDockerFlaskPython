@@ -13,5 +13,3 @@ Esto con el objetivo de asegurar un correcto funcionamiento del proyecto
 
 
 En el word puede ver como consumir la API
-
-También puede usar el "Prueba tus datos.postman_collection.json" importarlo y así consumir la app
