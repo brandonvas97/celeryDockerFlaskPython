@@ -216,6 +216,8 @@ def buscar():
 def consultar():
     content = request.json
     documento = content.get("documento", None)
+    pagInicial = content.get("pagInicial", None)
+    pagFinal = content.get("pagFinal", None)
     parametros = {
         "host": "postgres",
         "port": 5432,
@@ -229,7 +231,10 @@ def consultar():
         response = {'respuesta': "Campos faltantes por enviar"}
         return jsonify(response)
     cursor = conn.cursor()
-    sql = f"SELECT * FROM procesos WHERE cedulaactor = '{documento}'"
+    if pagInicial and pagFinal:
+        sql = f"SELECT * FROM procesos WHERE cedulaactor = '{documento}' AND id >= {pagInicial} AND id <= {pagFinal} ORDER BY id"
+    else:
+        sql = f"SELECT * FROM procesos WHERE cedulaactor = '{documento}' ORDER BY id"
     cursor.execute(sql)
     resultados = cursor.fetchall()
     if len(resultados) == 0:
@@ -248,7 +253,7 @@ def consultar():
     csv_writer.writerow(header)
     for item in data:
         csv_writer.writerow(item.values())
-    response = {'respuesta': respuesta}
+    response = {'respuesta': 'OK', 'datos':respuesta}
     return jsonify(response)
 
 
@@ -268,4 +273,10 @@ def prueba():
             response = {'respuesta': "Test fallido"}
             return jsonify(response)
     response = {'respuesta': "Test realizado"}
+    return jsonify(response)
+
+@main_blueprint.route("/token", methods=["GET"])
+@jwt_required()
+def token():
+    response = {'respuesta': "Token validado"}
     return jsonify(response)
